@@ -1,166 +1,84 @@
-:root {
-  --bg: #f2f2f7;
-  --text: #000;
-  --btn: #e5e5ea;
-  --op: #ff9500;
-}
-
-/* DARK MODE */
-body.dark {
-  --bg: #000;
-  --text: #fff;
-  --btn: #2c2c2e;
-  --op: #ff9500;
-}
-
-/* RED MODE */
-body.red {
-  --bg: #140000;
-  --text: #fff;
-  --btn: #2a0000;
-  --op: #ff2d2d;
-}
-
-/* RESET + FULL SCREEN FIX */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* ===== GLOBAL THEME ===== */
 body {
-  width: 100vw;
-  height: 100vh;
-  background: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* APP FULL FIT */
-.app {
-  width: 100%;
-  max-width: 420px;
-  height: 100vh;
-  padding: 15px;
-
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+  background: #0f0f0f;
+  color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-/* TOP BAR */
-.top {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
-/* BRAND */
-.brand {
-  font-size: 12px;
+/* ===== TOP BRANDING ===== */
+.top-brand {
+  width: 100%;
+  text-align: center;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
   color: #ff2d2d;
-  font-weight: bold;
-  text-shadow: 0 0 8px #ff2d2d;
+
+  background: #0f0f0f;
+  border-bottom: 1px solid rgba(255, 0, 0, 0.25);
+
+  text-shadow:
+    0 0 5px #ff0000,
+    0 0 10px #ff0000,
+    0 0 20px #ff2d2d,
+    0 0 35px #ff0000;
 }
 
-/* DISPLAY */
-#display {
-  width: 100%;
-  font-size: 64px;
+/* ===== CALCULATOR BOX ===== */
+.calculator {
+  margin-top: 20px;
+  width: 320px;
+  background: #1c1c1e;
+  border-radius: 25px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* ===== DISPLAY ===== */
+.display {
+  font-size: 40px;
   text-align: right;
-  border: none;
+  padding: 20px;
   background: transparent;
-  color: var(--text);
-  margin: 10px 0;
-}
-
-/* VOICE BUTTON */
-.voice {
-  width: 100%;
-  height: 45px;
-  border: none;
-  border-radius: 10px;
-  background: #ff2d2d;
   color: white;
-  font-weight: bold;
-  margin-bottom: 10px;
+  min-height: 60px;
 }
 
-/* SCIENTIFIC */
-#scientific {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  flex-grow: 1;
-}
-
-/* BUTTONS */
+/* ===== BUTTONS ===== */
 button {
+  width: 70px;
   height: 70px;
   border-radius: 50%;
   border: none;
-  font-size: 22px;
-  background: var(--btn);
-  color: var(--text);
+  margin: 5px;
+  font-size: 20px;
+  font-weight: 500;
+
+  background: #2c2c2e;
+  color: white;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: 0.2s ease;
 }
 
 button:active {
-  transform: scale(0.9);
+  transform: scale(0.92);
 }
 
-.orange {
-  background: var(--op);
+/* ===== OPERATORS ===== */
+button.operator {
+  background: #ff9f0a;
   color: white;
 }
 
-.gray {
-  background: #d1d1d6;
-}
-
-/* ZERO BUTTON */
-.zero {
-  grid-column: span 2;
-  border-radius: 40px;
-  text-align: left;
-  padding-left: 25px;
-}
-
-/* HISTORY */
-.history {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
+/* ===== EQUAL BUTTON ===== */
+button.equal {
+  background: #ff2d2d;
   color: white;
-  padding: 20px;
-}
-
-.hidden {
-  display: none;
-}
-
-/* MOBILE FIX */
-@media (max-width: 480px) {
-  #display {
-    font-size: 50px;
-  }
-
-  button {
-    height: 65px;
-    font-size: 18px;
-  }
+  box-shadow: 0 0 15px #ff2d2d;
 }
