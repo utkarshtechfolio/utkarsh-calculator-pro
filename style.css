@@ -5,27 +5,51 @@
   --op: #ff9500;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #000;
-    --text: #fff;
-    --btn: #2c2c2e;
-    --op: #ff9500;
-  }
+/* DARK MODE */
+body.dark {
+  --bg: #000;
+  --text: #fff;
+  --btn: #2c2c2e;
+  --op: #ff9500;
+}
+
+/* RED MODE */
+body.red {
+  --bg: #140000;
+  --text: #fff;
+  --btn: #2a0000;
+  --op: #ff2d2d;
+}
+
+/* RESET + FULL SCREEN FIX */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+  width: 100vw;
   height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--bg);
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* APP FULL FIT */
 .app {
-  width: 340px;
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* TOP BAR */
@@ -33,29 +57,28 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
 }
 
 /* BRAND */
 .brand {
   font-size: 12px;
   color: #ff2d2d;
-  text-shadow: 0 0 8px #ff2d2d;
   font-weight: bold;
+  text-shadow: 0 0 8px #ff2d2d;
 }
 
 /* DISPLAY */
 #display {
   width: 100%;
-  font-size: 65px;
+  font-size: 64px;
   text-align: right;
   border: none;
   background: transparent;
   color: var(--text);
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
-/* VOICE */
+/* VOICE BUTTON */
 .voice {
   width: 100%;
   height: 45px;
@@ -63,6 +86,15 @@ body {
   border-radius: 10px;
   background: #ff2d2d;
   color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* SCIENTIFIC */
+#scientific {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
   margin-bottom: 10px;
 }
 
@@ -70,7 +102,8 @@ body {
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  gap: 10px;
+  flex-grow: 1;
 }
 
 /* BUTTONS */
@@ -78,13 +111,13 @@ button {
   height: 70px;
   border-radius: 50%;
   border: none;
-  font-size: 24px;
+  font-size: 22px;
   background: var(--btn);
   color: var(--text);
 }
 
 button:active {
-  transform: scale(0.88);
+  transform: scale(0.9);
 }
 
 .orange {
@@ -92,6 +125,11 @@ button:active {
   color: white;
 }
 
+.gray {
+  background: #d1d1d6;
+}
+
+/* ZERO BUTTON */
 .zero {
   grid-column: span 2;
   border-radius: 40px;
@@ -103,6 +141,7 @@ button:active {
 .history {
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: black;
@@ -112,4 +151,16 @@ button:active {
 
 .hidden {
   display: none;
+}
+
+/* MOBILE FIX */
+@media (max-width: 480px) {
+  #display {
+    font-size: 50px;
+  }
+
+  button {
+    height: 65px;
+    font-size: 18px;
+  }
 }
